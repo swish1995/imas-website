@@ -18,7 +18,7 @@ interface Release {
   assets: ReleaseAsset[];
 }
 
-const REPO = 'swish1995/Skeleton_analyzer';
+const REPO = 'swish1995/imas-website';
 
 function formatSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
