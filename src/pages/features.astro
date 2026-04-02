@@ -1,0 +1,182 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="기능 - IMAS">
+  <!-- Header -->
+  <section class="border-b border-border/40 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <Badge variant="outline" className="mb-4 text-[#4a9eff] border-[#4a9eff]/40">Features</Badge>
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl">주요 기능</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-muted-foreground">
+        AI 자세 분석부터 보고서 생성까지, IMAS의 모든 기능을 소개합니다
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="mb-10 text-2xl font-bold">핵심 기능</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {[
+          {
+            icon: '🦴',
+            title: '실시간 스켈레톤 추출',
+            desc: 'MediaPipe AI가 동영상에서 33개 관절점을 자동 감지하고, 스켈레톤을 영상 위에 오버레이합니다.',
+          },
+          {
+            icon: '📐',
+            title: '관절 각도 자동 계산',
+            desc: '목, 몸통, 어깨, 팔꿈치, 손목, 무릎 등 13개 주요 관절의 굴곡 각도를 실시간으로 산출합니다.',
+          },
+          {
+            icon: '📊',
+            title: '5가지 인체공학 평가',
+            desc: 'RULA, REBA, OWAS, NLE, SI 국제 표준 평가를 동시에 자동 수행하여 다각적 위험도를 분석합니다.',
+          },
+          {
+            icon: '✏️',
+            title: '스켈레톤 편집',
+            desc: '관절점을 드래그하여 직접 수정하면 RULA/REBA/OWAS 점수가 실시간으로 재계산됩니다.',
+            licensed: true,
+          },
+          {
+            icon: '🎭',
+            title: '시뮬레이션 모드',
+            desc: '영상 없이 가상 T-포즈를 생성하고, 3D 뷰 회전을 통해 자세를 조작하며 평가를 수행합니다.',
+            licensed: true,
+          },
+          {
+            icon: '📋',
+            title: 'Excel 보고서 생성',
+            desc: '수식이 포함된 Excel 파일로 내보내어, 파라미터 변경 시 점수가 자동 재계산됩니다.',
+            licensed: true,
+          },
+        ].map((feat) => (
+          <Card className="border-border/60 hover:border-[#4a9eff]/30 transition-colors">
+            <CardHeader>
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">{feat.icon}</span>
+                {feat.licensed && (
+                  <Badge variant="secondary" className="bg-[#4a9eff]/10 text-[#4a9eff] border-0 text-xs">등록</Badge>
+                )}
+              </div>
+              <CardTitle className="text-base">{feat.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Management -->
+  <section class="border-t border-border/40 py-20">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="mb-10 text-2xl font-bold">데이터 관리</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          { icon: '💾', title: '프로젝트 저장', desc: '.skpx 형식으로 분석 상태 보존', licensed: true },
+          { icon: '📸', title: '프레임 캡처', desc: '원하는 순간의 자세를 캡처하여 저장', licensed: false },
+          { icon: '📁', title: '이미지 슬라이드쇼', desc: '폴더/ZIP 파일의 이미지 연속 분석', licensed: true },
+          { icon: '🔄', title: '회전/반전', desc: '영상의 회전 및 반전 변환 지원', licensed: false },
+        ].map((feat) => (
+          <Card className="border-border/60">
+            <CardContent className="pt-6">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-2xl">{feat.icon}</span>
+                {feat.licensed && (
+                  <Badge variant="secondary" className="bg-[#4a9eff]/10 text-[#4a9eff] border-0 text-xs">등록</Badge>
+                )}
+              </div>
+              <h3 class="font-semibold text-sm mb-1">{feat.title}</h3>
+              <p class="text-xs text-muted-foreground">{feat.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Free vs Licensed -->
+  <section class="border-t border-border/40 py-20">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="mb-10 text-center text-2xl font-bold">무료 vs 등록 버전</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <Card className="border-border/60">
+          <CardHeader>
+            <CardTitle className="text-lg">무료 버전</CardTitle>
+            <CardDescription>기본 분석 기능 제공</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul class="space-y-3 text-sm">
+              {[
+                '동영상 로드 및 재생',
+                '실시간 스켈레톤 추출',
+                '관절 각도 자동 계산',
+                'RULA 평가',
+                '프레임 캡처',
+              ].map((item) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-[#4ade80]">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+        <Card className="border-[#4a9eff]/30 bg-[#4a9eff]/5 relative overflow-hidden">
+          <div class="absolute top-0 right-0 m-4">
+            <Badge className="bg-[#4a9eff] text-white border-0">추천</Badge>
+          </div>
+          <CardHeader>
+            <CardTitle className="text-lg text-[#4a9eff]">등록 버전</CardTitle>
+            <CardDescription>모든 기능 활성화</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul class="space-y-3 text-sm">
+              {[
+                '무료 버전의 모든 기능',
+                'REBA / OWAS / NLE / SI 평가',
+                '스켈레톤 편집 (관절 드래그)',
+                '시뮬레이션 모드',
+                '프로젝트 저장/불러오기',
+                'Excel / JSON 내보내기',
+                '이미지 폴더/ZIP 로드',
+                '감지 모델 변경 (Lite/Full/Heavy)',
+              ].map((item) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-[#4a9eff]">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="border-t border-border/40 py-16">
+    <div class="mx-auto max-w-2xl px-6 text-center">
+      <p class="text-muted-foreground">라이센스 문의는 연락처 페이지를 확인해주세요</p>
+      <div class="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href={`${base}download/`}>
+          <Button className="h-13 px-8 text-base font-semibold bg-[#4a9eff] hover:bg-[#3a8eef] text-white shadow-lg shadow-[#4a9eff]/25">다운로드</Button>
+        </a>
+        <a href={`${base}contact/`}>
+          <Button variant="outline" className="h-13 px-8 text-base font-semibold">연락처</Button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

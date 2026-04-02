@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import DownloadSection from '@/components/DownloadSection';
+---
+
+<Layout title="다운로드 - IMAS">
+  <!-- Header -->
+  <section class="border-b border-border/40 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <Badge variant="outline" className="mb-4 text-[#4a9eff] border-[#4a9eff]/40">Download</Badge>
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl">다운로드</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-muted-foreground">
+        최신 버전의 IMAS를 다운로드하세요
+      </p>
+    </div>
+  </section>
+
+  <!-- Download Content -->
+  <section class="py-20">
+    <div class="mx-auto max-w-4xl px-6">
+      <DownloadSection client:load />
+    </div>
+  </section>
+</Layout>

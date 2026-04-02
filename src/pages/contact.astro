@@ -1,0 +1,120 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+---
+
+<Layout title="연락처 - IMAS">
+  <!-- Header -->
+  <section class="border-b border-border/40 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <Badge variant="outline" className="mb-4 text-[#4a9eff] border-[#4a9eff]/40">Contact</Badge>
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl">연락처</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-muted-foreground">
+        라이센스 문의 및 기술 지원
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- License Contact -->
+        <Card className="border-[#4a9eff]/30 bg-[#4a9eff]/5">
+          <CardHeader>
+            <Badge className="w-fit bg-[#4a9eff] text-white border-0 mb-2">라이센스 문의</Badge>
+            <CardTitle className="text-xl">안전기술연구원</CardTitle>
+            <CardDescription>대표 김명희</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#4a9eff]/10 text-lg">📞</span>
+              <div>
+                <div class="text-xs text-muted-foreground">전화</div>
+                <div class="font-medium">031-8016-3437</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#4a9eff]/10 text-lg">📧</span>
+              <div>
+                <div class="text-xs text-muted-foreground">이메일</div>
+                <a href="mailto:safety-engineer@naver.com" class="font-medium text-[#4a9eff] hover:underline">
+                  safety-engineer@naver.com
+                </a>
+              </div>
+            </div>
+            <Separator />
+            <div class="text-sm text-muted-foreground">
+              <p>라이센스 등록, 갱신, 기업 라이센스 등<br />모든 라이센스 관련 문의를 담당합니다.</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <!-- Developer -->
+        <Card className="border-border/60">
+          <CardHeader>
+            <Badge variant="secondary" className="w-fit mb-2">개발자</Badge>
+            <CardTitle className="text-xl">백승욱</CardTitle>
+            <CardDescription>Baik Seung Uk</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted text-lg">📧</span>
+              <div>
+                <div class="text-xs text-muted-foreground">이메일</div>
+                <a href="mailto:swish1995@gmail.com" class="font-medium hover:underline">
+                  swish1995@gmail.com
+                </a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted text-lg">🔗</span>
+              <div>
+                <div class="text-xs text-muted-foreground">GitHub</div>
+                <a
+                  href="https://github.com/swish1995/Skeleton_analyzer"
+                  target="_blank"
+                  rel="noopener"
+                  class="font-medium hover:underline"
+                >
+                  swish1995/Skeleton_analyzer
+                </a>
+              </div>
+            </div>
+            <Separator />
+            <div class="text-sm text-muted-foreground">
+              <p>버그 리포트, 기능 제안 등<br />기술적 문의를 담당합니다.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <!-- License Info -->
+      <Card className="mt-10 border-border/60">
+        <CardHeader>
+          <CardTitle className="text-lg">라이센스 등록 안내</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ol class="space-y-3 text-sm text-muted-foreground">
+            <li class="flex gap-3">
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a9eff]/10 text-xs font-bold text-[#4a9eff]">1</span>
+              <span>프로그램 내 <strong class="text-foreground">도움말 → 라이센스 등록</strong> 메뉴에서 하드웨어 ID를 확인합니다.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a9eff]/10 text-xs font-bold text-[#4a9eff]">2</span>
+              <span>하드웨어 ID를 위 연락처로 전달합니다.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4a9eff]/10 text-xs font-bold text-[#4a9eff]">3</span>
+              <span>발급받은 라이센스 키를 프로그램에 입력하면 등록이 완료됩니다.</span>
+            </li>
+          </ol>
+          <p class="mt-4 text-xs text-muted-foreground/60">
+            라이센스 키는 하드웨어에 종속됩니다. 컴퓨터 변경 시 새 키가 필요합니다.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+</Layout>
