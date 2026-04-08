@@ -10,17 +10,27 @@ const base = import.meta.env.BASE_URL;
 <Layout title="IMAS - 동영상 기반 AI 자세 분석 및 인체공학 평가 도구">
   <!-- Hero -->
   <section class="relative overflow-hidden py-24 md:py-36">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-background to-background"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#4a9eff]/10 via-transparent to-transparent"></div>
+    <video
+      class="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src={`${base}videos/hero-bg.mp4`} type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
     <div class="relative mx-auto max-w-6xl px-6 text-center">
       <Badge variant="outline" className="mb-6 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
         특허 출원중
       </Badge>
       <h1 class="mx-auto max-w-4xl text-5xl font-extrabold tracking-tight md:text-7xl leading-tight">
-        작업 자세 평가,<br />
-        <span class="bg-gradient-to-r from-[#4a9eff] to-[#2d7cd6] bg-clip-text text-transparent">10분에서 1초로</span>
+        <span id="hero-title" class="hero-slide block">작업 자세 평가,</span>
+        <span id="hero-highlight" class="hero-slide bg-gradient-to-r from-[#4a9eff] to-[#2d7cd6] bg-clip-text text-transparent block">10분에서 1초로</span>
       </h1>
-      <p class="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed md:text-xl">
+      <p id="hero-desc" class="hero-slide mx-auto mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed md:text-xl">
         동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br />
         AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.
       </p>
@@ -175,3 +185,39 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 </Layout>
+
+<script>
+  const slides = [
+    {
+      title: '작업 자세 평가,',
+      highlight: '10분에서 1초로',
+      desc: '동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br />AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.',
+    },
+    {
+      title: 'AI가 자동으로,',
+      highlight: '5가지 평가를 동시에',
+      desc: 'RULA, REBA, OWAS, NLE, SI — 국제 표준 인체공학 평가를<br />별도 장비 없이 영상 하나로 한 번에 수행합니다.',
+    },
+    {
+      title: '카메라 한 대로,',
+      highlight: '전문가 수준의 분석',
+      desc: '33개 관절점을 자동 감지하고, 13개 관절 각도를 실시간 산출합니다.<br />고가의 모션캡처 장비 없이도 객관적인 평가가 가능합니다.',
+    },
+  ];
+
+  let current = 0;
+  const els = document.querySelectorAll('.hero-slide');
+
+  setInterval(() => {
+    els.forEach(el => el.classList.add('fade-out'));
+
+    setTimeout(() => {
+      current = (current + 1) % slides.length;
+      document.getElementById('hero-title').textContent = slides[current].title;
+      document.getElementById('hero-highlight').textContent = slides[current].highlight;
+      document.getElementById('hero-desc').innerHTML = slides[current].desc;
+
+      els.forEach(el => el.classList.remove('fade-out'));
+    }, 1000);
+  }, 5000);
+</script>
