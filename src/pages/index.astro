@@ -9,42 +9,86 @@ const base = import.meta.env.BASE_URL;
 
 <Layout title="IMAS - 동영상 기반 AI 자세 분석 및 인체공학 평가 도구">
   <!-- Hero -->
-  <section class="relative overflow-hidden py-24 md:py-36">
-    <video
-      class="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src={`${base}videos/hero-bg.mp4`} type="video/mp4" />
-    </video>
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
-    <div class="relative mx-auto max-w-6xl px-6 text-center">
-      <Badge variant="outline" className="mb-6 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
-        특허 출원중
-      </Badge>
-      <h1 class="mx-auto max-w-4xl text-5xl font-extrabold tracking-tight md:text-7xl leading-tight">
-        <span id="hero-title" class="hero-slide block">작업 자세 평가,</span>
-        <span id="hero-highlight" class="hero-slide bg-gradient-to-r from-[#4a9eff] to-[#2d7cd6] bg-clip-text text-transparent block">10분에서 1초로</span>
-      </h1>
-      <p id="hero-desc" class="hero-slide mx-auto mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed md:text-xl">
-        동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br />
-        AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.
-      </p>
-      <div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href={`${base}download/`}>
-          <Button className="h-13 px-8 text-base font-semibold bg-[#4a9eff] hover:bg-[#3a8eef] text-white shadow-lg shadow-[#4a9eff]/25">
-            무료 다운로드
-          </Button>
-        </a>
-        <a href={`${base}features/`}>
-          <Button variant="outline" className="h-13 px-8 text-base font-semibold">
-            기능 살펴보기
-          </Button>
-        </a>
+  <section class="overflow-hidden">
+    <!-- 모바일: 세로 레이아웃 (영상 위 + 텍스트 아래) -->
+    <div class="md:hidden">
+      <div class="relative w-full overflow-hidden">
+        <video
+          class="w-full animate-hero-zoom"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src={`${base}videos/hero-bg.mp4`} type="video/mp4" />
+        </video>
+      </div>
+      <div class="px-4 py-8 text-center bg-background">
+        <Badge variant="outline" className="mb-4 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
+          특허 출원중
+        </Badge>
+        <h1 class="mx-auto max-w-4xl text-3xl font-extrabold tracking-tight sm:text-5xl leading-tight">
+          <span id="hero-title-m" class="hero-slide block">작업 자세 평가,</span>
+          <span id="hero-highlight-m" class="hero-slide bg-gradient-to-r from-[#4a9eff] to-[#2d7cd6] bg-clip-text text-transparent block">10분에서 1초로</span>
+        </h1>
+        <p id="hero-desc-m" class="hero-slide mx-auto mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
+          동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.
+          AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.
+        </p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href={`${base}download/`}>
+            <Button className="h-13 px-8 text-base font-semibold bg-[#4a9eff] hover:bg-[#3a8eef] text-white shadow-lg shadow-[#4a9eff]/25">
+              무료 다운로드
+            </Button>
+          </a>
+          <a href={`${base}features/`}>
+            <Button variant="outline" className="h-13 px-8 text-base font-semibold">
+              기능 살펴보기
+            </Button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PC: 기존 오버레이 레이아웃 -->
+    <div class="hidden md:block relative py-36">
+      <video
+        class="absolute inset-0 h-full w-full object-cover animate-hero-zoom"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
+        <source src={`${base}videos/hero-bg.mp4`} type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
+      <div class="relative mx-auto max-w-6xl px-6 text-center">
+        <Badge variant="outline" className="mb-6 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
+          특허 출원중
+        </Badge>
+        <h1 class="mx-auto max-w-4xl text-7xl font-extrabold tracking-tight leading-tight">
+          <span id="hero-title" class="hero-slide block">작업 자세 평가,</span>
+          <span id="hero-highlight" class="hero-slide bg-gradient-to-r from-[#4a9eff] to-[#2d7cd6] bg-clip-text text-transparent block">10분에서 1초로</span>
+        </h1>
+        <p id="hero-desc" class="hero-slide mx-auto mt-8 max-w-2xl text-xl text-muted-foreground leading-relaxed">
+          동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br />
+          AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.
+        </p>
+        <div class="mt-12 flex items-center justify-center gap-4">
+          <a href={`${base}download/`}>
+            <Button className="h-13 px-8 text-base font-semibold bg-[#4a9eff] hover:bg-[#3a8eef] text-white shadow-lg shadow-[#4a9eff]/25">
+              무료 다운로드
+            </Button>
+          </a>
+          <a href={`${base}features/`}>
+            <Button variant="outline" className="h-13 px-8 text-base font-semibold">
+              기능 살펴보기
+            </Button>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -191,17 +235,17 @@ const base = import.meta.env.BASE_URL;
     {
       title: '작업 자세 평가,',
       highlight: '10분에서 1초로',
-      desc: '동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br />AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.',
+      desc: '동영상 한 편으로 5가지 국제 표준 인체공학 평가를 자동 수행합니다.<br class="hidden md:inline" />AI가 실시간으로 자세를 분석하고, 근골격계 질환 위험을 사전에 파악합니다.',
     },
     {
       title: 'AI가 자동으로,',
       highlight: '5가지 평가를 동시에',
-      desc: 'RULA, REBA, OWAS, NLE, SI — 국제 표준 인체공학 평가를<br />별도 장비 없이 영상 하나로 한 번에 수행합니다.',
+      desc: 'RULA, REBA, OWAS, NLE, SI — 국제 표준 인체공학 평가를<br class="hidden md:inline" />별도 장비 없이 영상 하나로 한 번에 수행합니다.',
     },
     {
       title: '카메라 한 대로,',
       highlight: '전문가 수준의 분석',
-      desc: '33개 관절점을 자동 감지하고, 13개 관절 각도를 실시간 산출합니다.<br />고가의 모션캡처 장비 없이도 객관적인 평가가 가능합니다.',
+      desc: '33개 관절점을 자동 감지하고, 13개 관절 각도를 실시간 산출합니다.<br class="hidden md:inline" />고가의 모션캡처 장비 없이도 객관적인 평가가 가능합니다.',
     },
   ];
 
@@ -213,9 +257,23 @@ const base = import.meta.env.BASE_URL;
 
     setTimeout(() => {
       current = (current + 1) % slides.length;
-      document.getElementById('hero-title').textContent = slides[current].title;
-      document.getElementById('hero-highlight').textContent = slides[current].highlight;
-      document.getElementById('hero-desc').innerHTML = slides[current].desc;
+      const s = slides[current];
+
+      // PC
+      const t = document.getElementById('hero-title');
+      const h = document.getElementById('hero-highlight');
+      const d = document.getElementById('hero-desc');
+      if (t) t.textContent = s.title;
+      if (h) h.textContent = s.highlight;
+      if (d) d.innerHTML = s.desc;
+
+      // 모바일
+      const tm = document.getElementById('hero-title-m');
+      const hm = document.getElementById('hero-highlight-m');
+      const dm = document.getElementById('hero-desc-m');
+      if (tm) tm.textContent = s.title;
+      if (hm) hm.textContent = s.highlight;
+      if (dm) dm.innerHTML = s.desc.replace(/<br[^>]*>/g, ' ');
 
       els.forEach(el => el.classList.remove('fade-out'));
     }, 1000);
