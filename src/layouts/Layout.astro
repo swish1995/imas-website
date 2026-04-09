@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import MobileNav from '@/components/MobileNav';
 
 interface Props {
   title?: string;
@@ -50,6 +51,7 @@ const navItems = [
             </a>
           ))}
         </nav>
+        <MobileNav client:load navItems={navItems} currentPath={currentPath} />
       </div>
     </header>
 
