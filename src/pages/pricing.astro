@@ -1,0 +1,215 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="가격 - IMAS">
+  <!-- Header -->
+  <section class="border-b border-border/40 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-6 text-center">
+      <Badge variant="outline" className="mb-4 text-[#4a9eff] border-[#4a9eff]/40">Pricing</Badge>
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-5xl">가격 정책</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-muted-foreground">
+        합리적인 가격으로 IMAS의 모든 기능을 사용하세요
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="py-20">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Personal -->
+        <Card className="relative flex flex-col border-border/60">
+          <CardHeader>
+            <Badge variant="outline" className="w-fit mb-3 text-muted-foreground">개인</Badge>
+            <CardTitle className="text-2xl">개인 라이선스</CardTitle>
+            <CardDescription>1인 사용자를 위한 합리적 선택</CardDescription>
+            <div class="mt-6 flex items-baseline gap-2">
+              <span class="text-5xl font-extrabold">20<span class="text-2xl">만원</span></span>
+              <span class="text-muted-foreground">/ 년</span>
+            </div>
+          </CardHeader>
+          <CardContent className="flex flex-1 flex-col">
+            <Separator className="mb-6" />
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span><strong>컴퓨터 1대</strong> 사용 가능</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>5가지 인체공학 평가 (RULA / REBA / OWAS / NLE / SI)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>스켈레톤 편집 및 점수 재계산</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>Excel 보고서 자동 생성</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>프로젝트 저장/불러오기 (.skpx)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>1년간 업데이트 무료</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>이메일 기술 지원</span>
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a href={`${base}contact/`}>
+                <Button variant="outline" className="w-full h-12 text-base font-semibold">
+                  구매 문의
+                </Button>
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+
+        <!-- Corporate -->
+        <Card className="relative flex flex-col border-[#4a9eff]/40 shadow-lg shadow-[#4a9eff]/10">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <Badge className="bg-[#4a9eff] text-white">추천</Badge>
+          </div>
+          <CardHeader>
+            <Badge variant="outline" className="w-fit mb-3 border-[#4a9eff]/40 text-[#4a9eff]">기업</Badge>
+            <CardTitle className="text-2xl">기업 라이선스</CardTitle>
+            <CardDescription>팀·기업을 위한 무제한 라이선스</CardDescription>
+            <div class="mt-6 flex items-baseline gap-2">
+              <span class="text-5xl font-extrabold">100<span class="text-2xl">만원</span></span>
+              <span class="text-muted-foreground">/ 년</span>
+            </div>
+          </CardHeader>
+          <CardContent className="flex flex-1 flex-col">
+            <Separator className="mb-6" />
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span><strong>컴퓨터 무제한</strong> 사용 가능</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>기업명으로 라이선스 발급</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>5가지 인체공학 평가 (RULA / REBA / OWAS / NLE / SI)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>스켈레톤 편집 및 점수 재계산</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>Excel 보고서 자동 생성</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>프로젝트 저장/불러오기 (.skpx)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>1년간 업데이트 무료</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#4a9eff]">✓</span>
+                <span>우선 기술 지원 (전화 + 이메일)</span>
+              </li>
+            </ul>
+            <div class="mt-8">
+              <a href={`${base}contact/`}>
+                <Button className="w-full h-12 text-base font-semibold bg-[#4a9eff] hover:bg-[#3a8eef] text-white">
+                  구매 문의
+                </Button>
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <p class="mt-10 text-center text-sm text-muted-foreground">
+        모든 가격은 부가세 별도이며, 세금계산서 발행이 가능합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t border-border/40 py-20 bg-muted/30">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="mb-10 text-center text-3xl font-bold md:text-4xl">자주 묻는 질문</h2>
+
+      <div class="space-y-6">
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">라이선스는 어떻게 발급되나요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            구매 문의 후 결제가 확인되면 라이선스 키가 이메일로 발송됩니다.
+            개인 라이선스는 사용하실 컴퓨터의 하드웨어 ID가 필요하며,
+            기업 라이선스는 기업명으로 발급되어 별도 ID가 필요하지 않습니다.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">개인 라이선스에서 컴퓨터를 교체하면 어떻게 되나요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            컴퓨터 교체 시 1회 무료 재발급을 지원합니다.
+            새 컴퓨터의 하드웨어 ID를 알려주시면 라이선스를 이전해드립니다.
+            잦은 교체가 예상되는 경우 기업 라이선스를 권장드립니다.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">기업 라이선스는 몇 대까지 설치 가능한가요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            기업명으로 발급된 라이선스는 컴퓨터 대수 제한 없이 자유롭게 설치 및 사용이 가능합니다.
+            기업 내 안전관리 팀, 산업보건 팀 등에서 여러 PC에 동시 운영하실 수 있습니다.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">결제는 어떻게 진행되나요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            구매 문의 → 견적서 발송 → 계좌이체 또는 카드 결제 → 세금계산서 발행 →
+            라이선스 키 발급 순으로 진행됩니다. 자세한 사항은 연락처 페이지를 통해 문의해주세요.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">무료 체험판이 있나요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            기본 기능(RULA 평가)은 라이선스 없이 무료로 사용 가능합니다.
+            REBA / OWAS / NLE / SI 평가 및 프로젝트 저장 기능은 라이선스 등록 후 활성화됩니다.
+            <a href={`${base}download/`} class="text-[#4a9eff] hover:underline">다운로드 페이지</a>에서 받아 체험해보세요.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-border/60 bg-background p-6">
+          <h3 class="mb-3 font-semibold text-lg">환불 정책은 어떻게 되나요?</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            라이선스 발급 전에는 100% 환불이 가능합니다.
+            발급 후에는 7일 이내 환불 요청 시 사용 일수를 제외한 금액을 환불해드립니다.
+            기업 라이선스의 경우 별도 협의가 가능합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="mb-4 text-muted-foreground">추가 문의사항이 있으신가요?</p>
+        <a href={`${base}contact/`}>
+          <Button variant="outline" className="h-12 px-8 font-semibold">
+            문의하기
+          </Button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
