@@ -5,11 +5,12 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import PricingPopup from '@/components/PricingPopup';
+import { SHOW_PRICING } from '@/lib/pricing';
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="IMAS - 동영상 기반 AI 자세 분석 및 인체공학 평가 도구">
-  <PricingPopup client:load />
+  {SHOW_PRICING && <PricingPopup client:load />}
   <!-- Hero -->
   <section class="overflow-hidden">
     <!-- 모바일: 세로 레이아웃 (영상 위 + 텍스트 아래) -->

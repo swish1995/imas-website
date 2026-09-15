@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import MobileNav from '@/components/MobileNav';
+import { SHOW_PRICING } from '@/lib/pricing';
 
 interface Props {
   title?: string;
@@ -14,7 +15,7 @@ const navItems = [
   { href: `${base}`, label: '홈' },
   { href: `${base}features/`, label: '기능' },
   { href: `${base}assessments/`, label: '평가방법' },
-  { href: `${base}pricing/`, label: '가격' },
+  ...(SHOW_PRICING ? [{ href: `${base}pricing/`, label: '가격' }] : []),
   { href: `${base}download/`, label: '다운로드' },
   { href: `${base}contact/`, label: '연락처' },
 ];
