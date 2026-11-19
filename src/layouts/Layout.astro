@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import MobileNav from '@/components/MobileNav';
 import { SHOW_PRICING } from '@/lib/pricing';
+import { PATENT_STATUS, PATENT_NUMBER_LABEL } from '@/lib/patent';
 
 interface Props {
   title?: string;
@@ -72,7 +73,10 @@ const navItems = [
               Intelligent Musculoskeletal Analysis System<br />
               동영상 기반 AI 자세 분석 및 인체공학 평가 도구
             </p>
-            <p class="mt-2 text-xs text-muted-foreground/60">특허 출원중 (출원번호 확인 시 업데이트 예정)</p>
+            <div class="mt-4 inline-flex flex-col gap-0.5 rounded-lg border border-[#4a9eff]/40 bg-[#4a9eff]/10 px-4 py-3">
+              <span class="text-sm font-bold text-[#4a9eff]">{PATENT_STATUS}</span>
+              <span class="text-sm font-semibold text-foreground">{PATENT_NUMBER_LABEL}</span>
+            </div>
           </div>
           <div>
             <h4 class="mb-3 text-sm font-semibold">라이센스 문의</h4>

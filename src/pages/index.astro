@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import PricingPopup from '@/components/PricingPopup';
 import { SHOW_PRICING } from '@/lib/pricing';
+import { PATENT_STATUS, PATENT_NUMBER } from '@/lib/patent';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -29,7 +30,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       <div class="px-4 py-8 text-center bg-background">
         <Badge variant="outline" className="mb-4 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
-          특허 출원중
+          {PATENT_STATUS} · {PATENT_NUMBER}
         </Badge>
         <h1 class="mx-auto max-w-4xl text-3xl font-extrabold tracking-tight sm:text-5xl leading-tight">
           <span id="hero-title-m" class="hero-slide block">작업 자세 평가,</span>
@@ -70,7 +71,7 @@ const base = import.meta.env.BASE_URL;
       <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
       <div class="relative mx-auto max-w-6xl px-6 text-center">
         <Badge variant="outline" className="mb-6 border-[#4a9eff]/40 bg-[#4a9eff]/10 text-[#4a9eff] text-sm px-4 py-1.5">
-          특허 출원중
+          {PATENT_STATUS} · {PATENT_NUMBER}
         </Badge>
         <h1 class="mx-auto max-w-4xl text-7xl font-extrabold tracking-tight leading-tight">
           <span id="hero-title" class="hero-slide block">작업 자세 평가,</span>
@@ -191,6 +192,10 @@ const base = import.meta.env.BASE_URL;
               <li class="flex items-start gap-3">
                 <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#4ade80]/10 text-xs text-[#4ade80]">✓</span>
                 <span>RULA/REBA/OWAS/NLE/SI <strong class="text-[#4a9eff]">5가지 동시 평가</strong></span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#4ade80]/10 text-xs text-[#4ade80]">✓</span>
+                <span>독자 개발 분석 기술 — <strong class="text-[#4a9eff]">{PATENT_STATUS}</strong> ({PATENT_NUMBER})</span>
               </li>
             </ul>
           </CardContent>

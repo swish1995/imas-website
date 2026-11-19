@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { PATENT_STATUS, PATENT_NUMBER_LABEL } from '@/lib/patent';
 ---
 
 <Layout title="연락처 - IMAS">
@@ -109,6 +110,21 @@ import { Separator } from '@/components/ui/separator';
           </ol>
           <p class="mt-4 text-xs text-muted-foreground/60">
             라이센스 키는 하드웨어에 종속됩니다. 컴퓨터 변경 시 새 키가 필요합니다.
+          </p>
+        </CardContent>
+      </Card>
+
+      <!-- Patent Info -->
+      <Card className="mt-6 border-[#4a9eff]/30 bg-[#4a9eff]/5">
+        <CardHeader>
+          <CardTitle className="text-lg text-[#4a9eff]">특허 정보</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p class="text-base font-semibold text-foreground">
+            {PATENT_STATUS} · {PATENT_NUMBER_LABEL}
+          </p>
+          <p class="mt-2 text-sm text-muted-foreground">
+            IMAS의 영상 기반 자세 분석 및 인체공학 평가 기술은 특허 출원을 완료하여 심사가 진행 중입니다.
           </p>
         </CardContent>
       </Card>
